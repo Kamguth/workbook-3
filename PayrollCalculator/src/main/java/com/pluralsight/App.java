@@ -1,22 +1,25 @@
 package com.pluralsight;
+
 import java.io.*;
+
 public class App {
     public static void main(String[] args) {
-        try
-        {
+        try {
             FileReader fileReader = new FileReader("employees.csv");
             BufferedReader bufReader = new BufferedReader(fileReader);
 
-            bufReader.readLine();
+            bufReader.readLine(); //skips first line
 
             String input;
 
-            while((input = bufReader.readLine()) != null) {String[] parts = input.split("\\|");
+            while ((input = bufReader.readLine()) != null) {
+                String[] parts = input.split("\\|");
+                //input.split(Pattern.quote("\\|")) - alternate method of above
 
-int id = Integer.parseInt(parts[0]);
-String name = parts[1];
-double hoursWorked = Double.parseDouble(parts[2]);
-double payRate = Double.parseDouble(parts[3]);
+                int id = Integer.parseInt(parts[0]);
+                String name = parts[1];
+                double hoursWorked = Double.parseDouble(parts[2]);
+                double payRate = Double.parseDouble(parts[3]);
 
                 Employee emp = new Employee(id, name, hoursWorked, payRate);
                 System.out.printf("Employee: %s (ID: %d)%n", emp.getName(), emp.getEmployeeId());
@@ -25,11 +28,9 @@ double payRate = Double.parseDouble(parts[3]);
                 System.out.println("<><><><><><><><><><><><><><><><><><><><><><>");
 
 
-
             }
             bufReader.close();
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
