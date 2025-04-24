@@ -3,7 +3,6 @@ package com.pluralsight;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.ZoneId;
-import java.math.BigDecimal;
 
 public class App {
     public static void main(String[] args) {
@@ -42,12 +41,12 @@ public class App {
     }
 // displays local time zone
     static void clockSystem(LocalDateTime now) {
-        DateTimeFormatter clockSystem1 = DateTimeFormatter.ofPattern("hh:mm");
+        DateTimeFormatter clockSystem1 = DateTimeFormatter.ofPattern("hh:mm a");
         System.out.printf(now.format(clockSystem1) + " ß display in GMT time\n");
     }
 //displays local time and date in military format
     static void detailedSystem(LocalDateTime now) {
-        DateTimeFormatter detailedSystem1 = DateTimeFormatter.ofPattern("H:mm 'on' dd MMM yyyy");
+        DateTimeFormatter detailedSystem1 = DateTimeFormatter.ofPattern("H:mm a dd MMM yyyy");
         System.out.println(detailedSystem1.format(now) + " ß display in your local time zone");
     }
 }
